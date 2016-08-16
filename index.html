@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HTML5 Test Page</title>
+    <!-- <base href="http://trozdol.com/" target="_blank"> -->
+    <link rel="stylesheet" href="intro.css" />
+    <style>/* css can go here */</style>
+    <script type="text/javascript">/* put some code here if you like */</script>
+</head>
+
+<body>
+    <header>
+        <h1>some website content</h1>
+    </header>
+
+    <main>
+        <h2>A little explanation</h2>
+        <p>
+            There's a brief moment before the video has loaded. This can typically
+            be a still frame from the beginning of the video to display during load
+            time. I used a color test graphic so you could see where that happens.
+        </p>
+    </main>
+
+    <footer>
+        <h5>&copy; trozlabs.com</h5>
+    </footer>
+
+    <div class="intro-container" id="introContainer">
+        <video
+            class="intro-video"
+            id="introVideo"
+            poster="images/no-signal.png"
+            playsinline
+            autoplay
+            muted>
+
+            <source src="phs-logo-mograph-web.mp4" type="video/mp4">
+            <!-- <source src="http://...." type="video/webm"> -->
+        </video>
+        <span class="time-stamp" id="timeStamp">--:--</span>
+    </div>
+
+</body>
+</html>
+
+<script src="intro.js" charset="utf-8"></script>
