@@ -3,49 +3,21 @@ Website Video Intro
 
 FYI: There are no third party frameworks needed for this to work.
 
-This is the core of the demo. The rest is just to show how it can exist without
-affecting the existing website content.
-
-```html
-
-        <div class="intro-container" id="introContainer">
-            <video
-                class="intro-video"
-                id="introVideo"
-                poster="images/no-signal.png"
-                playsinline
-                autoplay
-                muted>
-
-                <source src="phs-logo-mograph-web.mp4" type="video/mp4">
-                <!-- <source src="http://...." type="video/webm"> -->
-            </video>
-            <span class="time-stamp" id="timeStamp">--:--</span>
-        </div>
-
-```
-
-Here's the JavaScript that is what tells the code to hide the video when
-`onended` event is fired by the video object.
+It's been changed up a good deal. Now the only thing you need to do is configure the `introConfig` values in the `intro.js` file.
 
 ```javascript
-var introContainer = document.getElementById('introContainer')
-var introVideo     = document.getElementById('introVideo')
 
-function onVideoEnd() {
-    introVideo.classList.add("hide")
+var introConfig = {
+    posterPath  : 'images/no-signal.png',        
+    vidh264     : 'videos/phs-logo-mograph-web.mp4',
+    vidWebm     : null
+};
 
-    // this waits for the opacity to dip to zero before setting
-    // to display none. this keeps the fadeout working nicely then
-    // allows the user to interact with the DOM elements below the video.
-    //
-    while (introVideo.style.opacity >! 0) {
-        introContainer.style.display = 'none'
-    }
-}
-
-introVideo.addEventListener('ended', function(e) {
-    console.log(' - e: ended', e)
-    onVideoEnd()
-});
 ```
+And add the line below near the bottom of your index.html file.
+
+```html
+<script src="path/to/intro.js" charset="utf-8"></script>
+```
+
+Once you do that with the correct paths the script will automatically reference the add a reference to the css file.
